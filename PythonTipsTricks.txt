@@ -1,3 +1,42 @@
+0. Print
+1. Why use main in Python
+2. Multiline Comments
+3. Exponentiation
+4. Python String Formatting
+5. Accessing Elelemt in a String Array
+6. String Builtin Helper Functions
+6b. Check if string has only alphabets
+7. Printing String
+8. Get input from Console
+9. Single quotes vs. double quotes in Python
+10. What is the difference between tuples and lists in Python?
+11. Python Dictionary
+11b. Ordered Dictionary
+12. How will you convert a string to an int in python?
+    How will you convert a string to a long in python?
+    How will you convert a string to a float in python?
+    How will you convert a object to a string in python?
+    How will you convert a object to a regular expression in python?
+    How will you convert a String to an object in python?
+    How will you convert a string to a tuple in python?
+    How will you convert a string to a list in python?
+    How will you convert a string to a set in python?
+    How will you create a dictionary using tuples in python?
+13. Date Time
+14. Boolean
+15. Function
+16. Import Module from Function
+17. The __doc__ attribute
+18. Variable number of args to a function
+19. Lists
+20. DICTIONARY:
+21. PYTHON FOR STATEMENT
+21b. Accessing the index in Python for loops
+22. TYPE of Object:
+23. CONTINUATION CHAR:
+24. What is GIL Global Interpreter Lock?
+25. Creating 2D Array in Python
+ 
 
 0.
 Print
@@ -81,11 +120,11 @@ https://docs.python.org/2/library/stdtypes.html#string-formatting
     - Conversion type.
 
 5. 
-Strings
+Accessing Elelemt in a String Array
     fifth_letter = "MONTY"[4]
 
 6. 
-String Function
+String Builtin Helper Functions
     Methods that use dot notation only work with strings.
 
     On the other hand, len() and str() can work on other data types.
@@ -101,6 +140,7 @@ String Function
 6b.
 Check if string has only alphabets
     str.isalpha()
+
 7. 
 Printing String
     string_1 = "Camelot"
@@ -360,3 +400,19 @@ http://stackoverflow.com/questions/1294382/what-is-a-global-interpreter-lock-gil
     Two threads can't run at the same time, but an individual thread will run faster because its not doing so much bookkeeping.
     Ultimately it comes down to a tradeoff between single-threaded speed and parallelism.
 
+25.
+Creating 2D Array in Python
+
+    board[0] = ["O"] * 5
+    board[1] = ["O"] * 5
+    board[2] = ["O"] * 5
+    board[3] = ["O"] * 5
+    board[4] = ["O"] * 5
+    print board
+
+    board = []
+    for x in range(5):
+        tmpList = ["O"] * 5
+        board.append(tmpList)
+
+    print board
