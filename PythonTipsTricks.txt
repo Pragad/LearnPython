@@ -36,6 +36,8 @@
 23. CONTINUATION CHAR:
 24. What is GIL Global Interpreter Lock?
 25. Creating 2D Array in Python
+26. Python Objects: Mutable vs. Immutable
+27. How do I pass a variable by reference
  
 
 0.
@@ -416,3 +418,14 @@ Creating 2D Array in Python
         board.append(tmpList)
 
     print board
+
+26.
+Python Objects: Mutable vs. Immutable
+https://codehabitude.com/2013/12/24/python-objects-mutable-vs-immutable/
+
+27.
+How do I pass a variable by reference
+http://stackoverflow.com/questions/986006/how-do-i-pass-a-variable-by-reference
+
+28.
+
