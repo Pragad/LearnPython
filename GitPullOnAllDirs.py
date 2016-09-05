@@ -13,23 +13,23 @@ print("\n\n" + myPwd)
 
 os.chdir("/Users/pragadh/PRAGADH/DEV/Algos")
 print("\n\n" + os.getcwd())
-call(["git status"], shell=True)
+call(["git pull origin master"], shell=True)
 
 os.chdir("/Users/pragadh/PRAGADH/DEV/LearnCpp")
 print("\n\n" + os.getcwd())
-call(["git status"], shell=True)
+call(["git pull origin master"], shell=True)
 
 os.chdir("/Users/pragadh/PRAGADH/DEV/LearnPython")
 print("\n\n" + os.getcwd())
-call(["git status"], shell=True)
+call(["git pull origin master"], shell=True)
 
 os.chdir("/Users/pragadh/PRAGADH/DEV/LearnJava")
 print("\n\n" + os.getcwd())
-call(["git status"], shell=True)
+call(["git pull origin master"], shell=True)
 
 os.chdir("/Users/pragadh/PRAGADH/DEV/OtherLearnings")
 print("\n\n" + os.getcwd())
-call(["git status"], shell=True)
+call(["git pull origin master"], shell=True)
 
 os.chdir(myPwd)
 print("\n\n" + os.getcwd())
