@@ -301,6 +301,7 @@ http://stackoverflow.com/questions/919680/can-a-variable-number-of-arguments-be-
 Lists
     Add Elements
         - use append()
+
     SLICING:
         LAST INDEX DOES NOT GET INCLUDED
         Then, we take a subsection and store it in the slice list.
@@ -324,7 +325,6 @@ Lists
 
 20.
 DICTIONARY:
-
     - Dictornaries are MUTABLE
     A dictionary is similar to a list, but you access values by looking up a key instead of an index.
     A key can be any string or number.
@@ -428,7 +428,44 @@ https://codehabitude.com/2013/12/24/python-objects-mutable-vs-immutable/
 How do I pass a variable by reference
 http://stackoverflow.com/questions/986006/how-do-i-pass-a-variable-by-reference
 
-28. Directory Operations
+    ANS: pass by assignment
+
+    IMP:
+    When you call a function with a parameter, a new reference is created that refers to the object passed in. This is separate from the reference that was used in the function call, so there's no way to update that reference and make it refer to a new object. In your example:
+        self.variable = 'Original'
+        self.Change(self.variable)
+
+    def Change(self, var):
+        var = 'Changed'
+
+    self.variable is a reference to the string object 'Original'.
+    When you call Change you create a second reference var to the object.
+    Inside the function you reassign the reference var to a different string object 'Changed', but the reference self.variable is separate and does not change.
+
+    The only way around this is to pass a mutable object.
+    Because both references refer to the same object, any changes to the object are reflected in both places.
+
+        self.variable = ['Original']
+        self.Change(self.variable)
+
+    def Change(self, var):
+        var[0] = 'Changed'
+
+    ------
+    Think of stuff being passed by assignment instead of by reference/by value.
+    That way, it is allways clear, what is happening as long as you understand what happens during normal assignment.
+
+    So, when passing a list to a function/method, the list is assigned to the parameter name.
+    Appending to the list will result in the list being modified.
+    Reassigning the list inside the function will not change the original list, since:
+        a = [1, 2, 3]
+        b = a
+        b.append(4)
+        b = ['a', 'b']
+        print a, b      # prints [1, 2, 3, 4] ['a', 'b']
+
+28.
+Directory Operations
     1. Performing Shell Operations
     http://stackoverflow.com/questions/18962785/oserror-errno-2-no-such-file-or-directory-while-using-python-subprocess-in-dj
 
