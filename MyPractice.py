@@ -1,4 +1,4 @@
-#! /usr/bin/env 
+#! /usr/bin/env/python
 
 #-------------------------------------------------------------------------------------------
 # sumOfNum(myList)
@@ -97,7 +97,6 @@ def main():
     # Problem 2
     # Find First Repeated Character in a String
     myStr = "helola"
-    print(myStr.__doc__)
     repChar = findFirstRepeatedChar(myStr)
 
 #-------------------------------------------------------------------------------------------
