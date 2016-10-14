@@ -774,6 +774,7 @@ https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-obj
 
 35. Python Inheritence and Polymorphism
 http://stackoverflow.com/questions/3724110/practical-example-of-polymorphism
+http://stackoverflow.com/questions/2835793/how-does-polymorphism-work-in-python
 
         class Animal:
             def __init__(self, name):    # Constructor of the class
