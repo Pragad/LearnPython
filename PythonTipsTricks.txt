@@ -3,7 +3,7 @@
 2. Multiline Comments
 3. Exponentiation
 4. Python String Formatting
-5. Accessing Elelemt in a String Array
+5. Accessing Elelemt in a String Array and SLICING of String:
 6. String Builtin Helper Functions
 6b. Check if string has only alphabets
 7. Printing String
@@ -30,6 +30,7 @@
 18. Variable number of args to a function
 19. Lists
 20. DICTIONARY:
+20a. Sort a dictionary based on values OR keys
 21. PYTHON FOR STATEMENT
 21b. Accessing the index in Python for loops
 22. TYPE of Object:
@@ -37,18 +38,63 @@
 24. What is GIL Global Interpreter Lock?
 25. Creating 2D Array in Python
 26. Python Objects: Mutable vs. Immutable
+26b. Aren't Python strings immutable
+26c. Why are Python strings immutable
 27. How do I pass a variable by reference
 28. Directory Operations
--------------------------------------------------------------------------------------------------
-
+29. Shebang line First line in python
+30. How would you make a comma-separated string from a list
+31. Return values from a function
+32. __doc__ attribute
+33. What is Duck Typing
+34. Python CLASSes
+34b. Python Class Static Variable and Class Variable
+34c. Static Methods
+35. Python Inheritence and Polymorphism
+36. Python Multiple Inheritence
+----------------------------------------------------------------------------------------------
 0.
 Print
+http://stackoverflow.com/questions/12032214/python-3-print-new-output-on-same-line
+
     print "There are %d items in the suitcase." % (list_length)
+
+PYTHON 3.x
+    From help(print):
+
+    Help on built-in function print in module builtins:
+
+    print(...)
+        print(value, ..., sep=' ', end='\n', file=sys.stdout)
+
+        Prints the values to a stream, or to sys.stdout by default.
+        Optional keyword arguments:
+        file: a file-like object (stream); defaults to the current sys.stdout.
+        sep:  string inserted between values, default a space.
+        end:  string appended after the last value, default a newline.
+
+    You can use the end keyword:
+
+    >>> for i in range(1, 11):
+    ...     print(i, end='')
+    ... 
+    12345678910>>> 
+
+PYTHON 2.x
+    # Extra comma at end makes sure that it gets printed on the same line
+    for elmt in range(len(myList)):
+        print(myList[index] , ","),
 
 1.
 Why use main in Python
 http://stackoverflow.com/questions/419163/what-does-if-name-main-do
 http://stackoverflow.com/questions/4041238/why-use-def-main
+
+        def main():
+            print("hello")
+
+        if __name__ == "__main__":
+            main()
 
     If the python interpreter is running that module (the source file) as the main program, it sets the special __name__ variable to have a value "__main__".
     If this file is being imported from another module, __name__ will be set to the module's name.
@@ -123,8 +169,20 @@ https://docs.python.org/2/library/stdtypes.html#string-formatting
     - Conversion type.
 
 5. 
-Accessing Elelemt in a String Array
+Accessing Elelemt in a String Array and SLICING of String:
     fifth_letter = "MONTY"[4]
+
+    >>> x = "Hello World!"
+    >>> x[2:]
+    'llo World!'
+    >>> x[:2]
+    'He'
+    >>> x[:-2]
+    'Hello Worl'
+    >>> x[-2:]
+    'd!'
+    >>> x[2:-2]
+    'llo Worl'
 
 6. 
 String Builtin Helper Functions
@@ -144,6 +202,13 @@ String Builtin Helper Functions
 Check if string has only alphabets
     str.isalpha()
 
+6c.
+Check if a string is present in another string
+http://stackoverflow.com/questions/3437059/does-python-have-a-string-contains-substring-method?rq=1
+
+    if "blah" not in somestring: 
+        continue
+
 7. 
 Printing String
     string_1 = "Camelot"
@@ -154,7 +219,9 @@ Printing String
 
 8.
 Get input from Console
-    raw_input()
+http://stackoverflow.com/questions/954834/how-do-i-use-raw-input-in-python-3
+    PYTHON 3.x : input()
+    PYTHON 2.x : raw_input()
 
     name = raw_input("What is your name?")
     quest = raw_input("What is your quest?")
@@ -359,20 +426,51 @@ DICTIONARY:
             print "price: %s" % prices[item]
             print "stock: %s" % stock[item]
 
+20a.
+Sort a dictionary based on values OR keys
+http://stackoverflow.com/questions/613183/sort-a-python-dictionary-by-value?rq=1
+
+    As simple as: sorted(dict1, key=dict1.get)
+
+    It is not possible to sort a dict, only to get a representation of a dict that is sorted.
+    Dicts are inherently orderless, but other types, such as lists and tuples, are not.
+    So you need a sorted representation, which will be a list—probably a list of tuples.
+
+    For instance,
+        import operator
+        x = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0}
+        sorted_x = sorted(x.items(), key=operator.itemgetter(1))
+
+    sorted_x will be a list of tuples sorted by the second element in each tuple.
+    dict(sorted_x) == x.
+
+    And for those wishing to sort on keys instead of values:
+        import operator
+        x = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0}
+        sorted_x = sorted(x.items(), key=operator.itemgetter(0))
+
 21. 
 PYTHON FOR STATEMENT
+    - IMP: for statement MUST NOT have '(' ')'
+
     for iterating_var in sequence:
 
     fruits = ['banana', 'apple',  'mango']
     for index in range(len(fruits)):
-       print 'Current fruit :', fruits[index]
-        
+        print 'Current fruit :', fruits[index]
+
 21b.
 Accessing the index in Python for loops
 http://stackoverflow.com/questions/522563/accessing-the-index-in-python-for-loops
 
+    METHOD 1:
     for idx, val in enumerate(ints):
         print(idx, val)
+
+    METHOD 2:
+    fruits = ['banana', 'apple',  'mango']
+    for index in range(len(fruits)):
+        print 'Current fruit :', fruits[index]
 
 22.
 TYPE of Object:
@@ -423,6 +521,69 @@ Creating 2D Array in Python
 26.
 Python Objects: Mutable vs. Immutable
 https://codehabitude.com/2013/12/24/python-objects-mutable-vs-immutable/
+
+    The following are immutable objects:
+        Numeric types: int, float, complex
+        string
+        tuple
+        frozen set
+        bytes
+
+    The following objects are mutable:
+        list
+        dict
+        set
+        byte array
+
+26b.
+Aren't Python strings immutable
+http://stackoverflow.com/questions/9097994/arent-python-strings-immutable
+
+        a = "Dog"
+        b = "eats"
+        c = "treats"
+
+        print a, b, c
+        # Dog eats treats
+
+        print a
+        # Dog
+
+        a = a + " " + b + " " + c
+        print a
+        # Dog eats treats
+
+    First a pointed to the string "Dog".
+    Then you changed the variable a to point at a new string "Dog eats treats".
+    You didn't actually mutate the string "Dog".
+    Strings are immutable, variables can point at whatever they want.
+
+26c.
+Why are Python strings immutable
+http://stackoverflow.com/questions/8680080/why-are-python-strings-immutable-best-practices-for-using-them
+    - Immutable objects are automatically threadsafe.
+
+    When you receive a string, you'll be sure that it stays the same.
+    Suppose that you'd construct a Foo as below with a string argument, and would then modify the string; then the Foo's name would suddenly change:
+
+        class Foo(object):
+            def __init__(self, name):
+                self.name = name
+
+        name = "Hello"
+        foo = Foo(name)
+        name[0] = "J"
+
+    - With mutable strings, you'd have to make copies all the time to prevent bad things from happening.
+    - It also allows the convenience that a single character is no different from a string of length one, so all string operators apply to characters as well.
+
+    IMP:
+    And lastly, if strings weren't immutable, you couldn't reliably use them as keys in a dict, since their hash value might suddenly change.
+
+    As for programming with immutable strings, just get used to treating them the same way you treat numbers: as values, not as objects.
+
+    Changing the first letter of name would be
+        name = "J" + name[1:]
 
 27.
 How do I pass a variable by reference
@@ -478,4 +639,233 @@ Directory Operations
     3. Getting pwd
             import os
             myPwd = os.getcwd()
+
+29.
+Shebang line First line in python
+
+    #! /usr/bin/env 
+    #! /usr/bin/env python
+
+    In order to run the python script, we need to tell the shell three things:
+        1.That the file is a script
+        2. Which interpreter we want to execute the script
+        3. The path of said interpreter
+
+    The shebang #! accomplishes (1.).
+    The shebang begins with a # because the # character is a comment marker in many scripting languages.
+    The contents of the shebang line are therefore automatically ignored by the interpreter.
+
+    The env command accomplishes (2.) and (3.).
+
+    If you have several versions of Python installed, /usr/bin/env will ensure the interpreter used is the first one on your environment's $PATH.
+    The alternative would be to hardcode something like #!/usr/bin/python; that's ok, but less flexible.
+
+30.
+How would you make a comma-separated string from a list
+http://stackoverflow.com/questions/44778/how-would-you-make-a-comma-separated-string-from-a-list
+
+        myList = ['a','b','c','d']
+        myString = ",".join(myList )
+    This won't work if the list contains numbers.
+
+    If it contains non-string types (such as integers, floats, bools, None) then do:
+        myList = ','.join(map(str, myList)) 
+
+31.
+Return values from a function
+
+    Just return what you want from the function
+        def random_col(board):
+            return randint(0, len(board[0]) - 1)
+
+        ship_row = random_row(board)
+
+32. __doc__ attribute
+
+    There is a __doc__ attribute for every object. 
+    It prints details about the data type
+
+    print(myStr.__doc__)
+
+        str(object='') -> str
+        str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+        Create a new string object from the given object. If encoding or
+        errors is specified, then the object must expose a data buffer
+        that will be decoded using the given encoding and error handler.
+        Otherwise, returns the result of object.__str__() (if defined)
+        or repr(object).
+        encoding defaults to sys.getdefaultencoding().
+        errors defaults to 'strict'.    
+
+33.
+What is Duck Typing
+http://stackoverflow.com/questions/4205130/what-is-duck-typing
+
+34.
+Python CLASSes
+https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/
+
+34b.
+Python Class Static Variable and Class Variable
+http://stackoverflow.com/questions/9056957/correct-way-to-define-class-variables-in-python
+
+    - Elements outside the __init__ method are static elements.
+      It means, they belong to the class.
+    - Elements inside the __init__ method are elements of the object (self).
+      They don't belong to the class.
+
+    You'll see it more clearly with some code:
+        class MyClass:
+            static_elem = 123
+
+            def __init__(self):
+                self.object_elem = 456
+
+        c1 = MyClass()
+        c2 = MyClass()
+
+        # Initial values of both elements
+        >>> print c1.static_elem, c1.object_elem 
+        123 456
+        >>> print c2.static_elem, c2.object_elem
+        123 456
+
+        # Nothing new so far ...
+
+        # Let's try changing the static element
+        MyClass.static_elem = 999
+
+        >>> print c1.static_elem, c1.object_elem
+        999 456
+        >>> print c2.static_elem, c2.object_elem
+        999 456
+
+        # Now, let's try changing the object element
+        c1.object_elem = 888
+
+        >>> print c1.static_elem, c1.object_elem
+        999 888
+        >>> print c2.static_elem, c2.object_elem
+        999 456
+
+34c.
+Static Methods
+https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/
+
+    There is a class of methods, called static methods, that don't have access to self.
+    They are methods that work without requiring an instance to be present.
+    Since instances are always referenced through self, static methods have no self parameter.
+
+    The following would be a valid static method on the Car class:
+        class Car(object):
+            ...
+            def make_car_sound():
+                print 'VRooooommmm!'
+
+    No matter what kind of car we have, it always makes the same sound (or so I tell my ten month old daughter).
+    To make it clear that this method should not receive the instance as the first parameter (i.e. self on "normal" methods), the @staticmethod decorator is used, turning our definition into:
+
+        class Car(object):
+            ...
+            @staticmethod
+            def make_car_sound():
+                print 'VRooooommmm!'
+
+35. Python Inheritence and Polymorphism
+http://stackoverflow.com/questions/3724110/practical-example-of-polymorphism
+
+        class Animal:
+            def __init__(self, name):    # Constructor of the class
+                self.name = name
+            def talk(self):              # Abstract method, defined by convention only
+                raise NotImplementedError("Subclass must implement abstract method")
+
+        class Cat(Animal):
+            def talk(self):
+                return 'Meow!'
+
+        class Dog(Animal):
+            def talk(self):
+                return 'Woof! Woof!'
+
+        animals = [Cat('Missy'),
+                   Cat('Mr. Mistoffelees'),
+                   Dog('Lassie')]
+
+        for animal in animals:
+            print animal.name + ': ' + animal.talk()
+
+        # prints the following:
+        #
+        # Missy: Meow!
+        # Mr. Mistoffelees: Meow!
+        # Lassie: Woof! Woof!
+
+36.
+Python Multiple Inheritence
+http://stackoverflow.com/questions/3277367/how-does-pythons-super-work-with-multiple-inheritance
+
+        class First(object):
+            def __init__(self):
+                print "first"
+
+        class Second(object):
+            def __init__(self):
+                print "second"
+
+        class Third(First, Second):
+            def __init__(self):
+                super(Third, self).__init__()
+                print "that's it"
+
+    But, briefly: in your example, Third() will call First.__init__.
+    For such simple situations, Python will look for the attribute (in this case, __init__) on the class's parents, left to right.
+
+    So, if you define
+        class Third(First, Second):
+            ...
+
+    Python will look at First, and, if First doesn't have the attribute, at Second.
+
+    This situation becomes more complex when inheritance starts crossing paths (say, if First inherited from Second, for instance).
+    Read the link above for more details, but, in a nutshell, Python will try to maintain the order in which each class appears on the inheritance list, child classes first.
+
+    So, for instance, if you had:
+        class First(object):
+            def __init__(self):
+                print "first"
+
+        class Second(First):
+            def __init__(self):
+                print "second"
+
+        class Third(First):
+            def __init__(self):
+                print "third"
+
+        class Fourth(Second, Third):
+            def __init__(self):
+                super(Fourth, self).__init__()
+                print "that's it"
+
+    the MRO would be [Fourth, Second, Third, First].
+
+    By the way: if Python cannot find a coherent method resolution order, it'll raise an exception, instead of falling back to a behaviour which might surprise the user.
+
+    Edited to add example of an ambiguous MRO:
+        class First(object):
+            def __init__(self):
+                print "first"
+
+        class Second(First):
+            def __init__(self):
+                print "second"
+
+        class Third(First, Second):
+            def __init__(self):
+                print "third"
+
+    Should Third's MRO be [First, Second] or [Second, First]? There's no obvious expectation, and Python will raise an error:
+        TypeError: Error when calling the metaclass bases Cannot create a consistent method resolution order (MRO) for bases Second, First
 
