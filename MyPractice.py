@@ -13,8 +13,18 @@ def sumOfNum(myList):
     return sumList
 
 #-------------------------------------------------------------------------------------------
+# sort(myList)
+#       Function to sort a list
+#-------------------------------------------------------------------------------------------
+def sortList(myList):
+    tmpList = myList
+    tmpList.sort()
+    print(tmpList)
+
+#-------------------------------------------------------------------------------------------
 # printList(myList)
-#       Function to calculate the sum of numbers
+#       Function to print a list
+#       Print a list using three methods
 #-------------------------------------------------------------------------------------------
 def printList(myList):
 
@@ -98,6 +108,12 @@ def main():
     # Find First Repeated Character in a String
     myStr = "helola"
     repChar = findFirstRepeatedChar(myStr)
+
+    # Problem 3
+    # Sort a list using Builtin method
+    numsList = [3, 5, 2, 1, 8, 4]
+    sortList(numsList)
+    print(numsList)
 
 #-------------------------------------------------------------------------------------------
 # Start Main

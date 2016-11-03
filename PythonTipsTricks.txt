@@ -52,6 +52,7 @@
 34c. Static Methods
 35. Python Inheritence and Polymorphism
 36. Python Multiple Inheritence
+37. Sort a list
 ----------------------------------------------------------------------------------------------
 0.
 Print
@@ -869,4 +870,9 @@ http://stackoverflow.com/questions/3277367/how-does-pythons-super-work-with-mult
 
     Should Third's MRO be [First, Second] or [Second, First]? There's no obvious expectation, and Python will raise an error:
         TypeError: Error when calling the metaclass bases Cannot create a consistent method resolution order (MRO) for bases Second, First
+
+37.
+Sort a list
+
+    myList.sort()
 
