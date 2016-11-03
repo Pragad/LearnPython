@@ -19,7 +19,7 @@ def findGCD(numA, numB):
 #-------------------------------------------------------------------------------------------
 def findGCDList(numsList):
     
-    myTmpList = numsList
+    myTmpList = numsList[:]
     myTmpList.sort()
 
     index = 0
@@ -29,7 +29,7 @@ def findGCDList(numsList):
     tmpGCD = numsList[0]
 
     for index in range(len(numsList)):
-        tmpGCD = findGCD(tmpGCD, numList[index])
+        tmpGCD = findGCD(tmpGCD, numsList[index])
 
     return tmpGCD
 
@@ -49,6 +49,12 @@ def numsBetweenTwoSets(listA, listB):
     print("Gcd of two numbers: ")
     gcd = findGCD(4, 5)
     print(gcd)
+
+    numsList = [6, 21, 15, 60]
+    print("Gcd of List: ")
+    gcd = findGCDList(numsList)
+    print(gcd)
+
     return gcd
     
 

@@ -53,6 +53,8 @@
 35. Python Inheritence and Polymorphism
 36. Python Multiple Inheritence
 37. Sort a list
+38. '//' operator
+39. What are the options to clone or copy a list in Python?
 ----------------------------------------------------------------------------------------------
 0.
 Print
@@ -875,4 +877,51 @@ http://stackoverflow.com/questions/3277367/how-does-pythons-super-work-with-mult
 Sort a list
 
     myList.sort()
+
+38.
+// operator
+    // 	Floor Division :
+    The division of operands where the result is the quotient in which the digits after the decimal point are removed.
+    But if one of the operands is negative, the result is floored,
+    i.e., rounded away from zero (towards negative infinity): 
+    9//2 = 4 and 9.0//2.0 = 4.0, -11//3 = -4, -11.0//3 = -4.0
+
+
+39.
+What are the options to clone or copy a list in Python?
+http://stackoverflow.com/questions/2612802/how-to-clone-or-copy-a-list
+
+    What are the options to clone or copy a list in Python?
+    Using new_list = my_list then modifies new_list every time my_list changes.
+    Why is this?
+
+    You have various possibilities:
+
+        1. You can slice it:
+               new_list = old_list[:]
+
+        2. You can use the built in list() function:
+               new_list = list(old_list)
+
+        3. You can use generic copy.copy():
+               import copy
+               new_list = copy.copy(old_list)
+           This is a little slower than list() because it has to find out the datatype of old_list first.
+
+        4. If the list contains objects and you want to copy them as well, use generic copy.deepcopy():
+               import copy
+               new_list = copy.deepcopy(old_list)
+           Obviously the slowest and most memory-needing method, but sometimes unavoidable.
+
+    10.59 sec (105.9us/itn) - copy.deepcopy(old_list)
+    10.16 sec (101.6us/itn) - pure python Copy() method copying classes with deepcopy
+    1.488 sec (14.88us/itn) - pure python Copy() method not copying classes (only dicts/lists/tuples)
+    0.325 sec (3.25us/itn) - for item in old_list: new_list.append(item)
+    0.217 sec (2.17us/itn) - [i for i in old_list] (a list comprehension)
+    0.186 sec (1.86us/itn) - copy.copy(old_list)
+    0.075 sec (0.75us/itn) - list(old_list)
+    0.053 sec (0.53us/itn) - new_list = []; new_list.extend(old_list)
+    0.039 sec (0.39us/itn) - old_list[:] (list slicing)
+
+
 

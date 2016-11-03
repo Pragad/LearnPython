@@ -17,8 +17,11 @@ def sumOfNum(myList):
 #       Function to sort a list
 #-------------------------------------------------------------------------------------------
 def sortList(myList):
-    tmpList = myList
+
+    # Copy a list
+    tmpList = myList[:]
     tmpList.sort()
+    print("Tmp List")
     print(tmpList)
 
 #-------------------------------------------------------------------------------------------
@@ -113,6 +116,7 @@ def main():
     # Sort a list using Builtin method
     numsList = [3, 5, 2, 1, 8, 4]
     sortList(numsList)
+    print("Original List")
     print(numsList)
 
 #-------------------------------------------------------------------------------------------
