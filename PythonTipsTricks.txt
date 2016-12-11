@@ -212,6 +212,23 @@ http://stackoverflow.com/questions/3437059/does-python-have-a-string-contains-su
     if "blah" not in somestring: 
         continue
 
+6d.
+Compare two strings == vs 'is'
+
+    The is keyword is a test for object identity while == is a value comparison
+    If you use is, the result will be true if and only if the object is the same object.
+    However, == will be true any time the values of the object are the same.
+
+6e.
+Strip '\n' from a string
+
+    newLine = lines[0].rstrip('\n')
+
+6f.
+String leading whitespace from a string
+
+    newLine = lines[0].lstrip().rstrip('\n')
+
 7. 
 Printing String
     string_1 = "Camelot"
@@ -924,4 +941,7 @@ http://stackoverflow.com/questions/2612802/how-to-clone-or-copy-a-list
     0.039 sec (0.39us/itn) - old_list[:] (list slicing)
 
 
+40.
+Check if a number is in range
 
+    if 10000 <= number <= 30000:

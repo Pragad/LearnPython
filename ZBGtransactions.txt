@@ -1,0 +1,23 @@
+*START ZBG*
+Date: 9/9/16
+Description: Payments for John Smith
+==
+Description: Mortgage
+Type: Debit
+Origin: 245987 / 21000
+Destination: 987243 / 4259
+Amount: 150500
+== 
+Description: Gym membership 
+Type: Debit
+Origin: 245987 / 21000
+Destination: 59784 / 08345
+Amount: 23700
+== 
+Description: Credit card return
+Type: Credit
+Origin: 983750 / 73980
+Destination: 987243 / 4259
+Amount: 249030
+==
+*END ZBG*

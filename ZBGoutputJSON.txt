@@ -1,0 +1,32 @@
+{
+    "Date": "2016-09-09",
+    "Description": "Payments for John Smith",
+    "Debits": [
+        {
+            "Description": "Mortgage",
+            "OriginAccount": "245987",
+            "OriginRouting": "21000",
+            "DestinationAccount": "987243",
+            "DestinationRouting": "4259",
+            "Amount": 1505.0
+        },
+        {
+            "Description": "Gym membership ",
+            "OriginAccount": "245987",
+            "OriginRouting": "21000",
+            "DestinationAccount": "59784",
+            "DestinationRouting": "08345",
+            "Amount": 237.0
+        }
+    ],
+    "Credits": [
+        {
+            "Description": "Credit card return",
+            "OriginAccount": "983750",
+            "OriginRouting": "73980",
+            "DestinationAccount": "987243",
+            "DestinationRouting": "4259",
+            "Amount": 2490.3
+        }
+    ]
+}
