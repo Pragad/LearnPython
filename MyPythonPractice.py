@@ -4,28 +4,22 @@ import datetime
 from collections import defaultdict
 
 #-------------------------------------------------------------------------------------------
-# sumOfNum(myList)
-#       Function to calculate the sum of numbers
+# getInputList(myList):
+#        Get Input Numbers to a list
 #-------------------------------------------------------------------------------------------
-def sumOfNum(myList):
-    sumList = 0
+# Main Function
+def getInputList(myList):
+    # Get a list of numbers until the user enters a blank line
+    line = input("Enter list of numbers: \n")
 
-    for elmt in myList:
-        sumList += elmt
+    #while (line not in ['\n', '\r\n']):
+    while (line):
+        myList.append(int(line))
 
-    return sumList
+        line = input()
 
-#-------------------------------------------------------------------------------------------
-# sort(myList)
-#       Function to sort a list
-#-------------------------------------------------------------------------------------------
-def sortList(myList):
-
-    # Copy a list
-    tmpList = myList[:]
-    tmpList.sort()
-    print("Tmp List")
-    print(tmpList)
+        if (line in ('\n', '\r\n')):
+            break
 
 #-------------------------------------------------------------------------------------------
 # printList(myList)
@@ -49,23 +43,30 @@ def printList(myList):
         print(myList[index], ', ', end=''),
     print()
 
+
 #-------------------------------------------------------------------------------------------
-# getInputList(myList):
-#        Get Input Numbers to a list
+# sumOfNum(myList)
+#       Function to calculate the sum of numbers
 #-------------------------------------------------------------------------------------------
-# Main Function
-def getInputList(myList):
-    # Get a list of numbers until the user enters a blank line
-    line = input("Enter list of numbers: \n")
+def sumOfNum(myList):
+    sumList = 0
 
-    #while (line not in ['\n', '\r\n']):
-    while (line):
-        myList.append(int(line))
+    for elmt in myList:
+        sumList += elmt
 
-        line = input()
+    return sumList
 
-        if (line in ('\n', '\r\n')):
-            break
+#-------------------------------------------------------------------------------------------
+# sort(myList)
+#       Function to sort a list
+#-------------------------------------------------------------------------------------------
+def sortList(myList):
+
+    # Copy a list
+    tmpList = myList[:]
+    tmpList.sort()
+    print("Tmp List")
+    print(tmpList)
 
 #-------------------------------------------------------------------------------------------
 # findFirstRepeatedChar(myStr):
