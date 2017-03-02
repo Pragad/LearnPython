@@ -55,6 +55,8 @@
 37. Sort a list
 38. '//' operator
 39. What are the options to clone or copy a list in Python?
+40. Check if a number is in range
+41. Get arguments from command line
 ----------------------------------------------------------------------------------------------
 0.
 Print
@@ -945,3 +947,8 @@ http://stackoverflow.com/questions/2612802/how-to-clone-or-copy-a-list
 Check if a number is in range
 
     if 10000 <= number <= 30000:
+
+41.
+Get arguments from command line
+    
+    len(sys.argv) : Includes file name as first argument
