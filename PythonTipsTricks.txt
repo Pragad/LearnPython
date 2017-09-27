@@ -57,6 +57,7 @@
 39. What are the options to clone or copy a list in Python?
 40. Check if a number is in range
 41. Get arguments from command line
+42. Prefix a number with leading zeroes
 ----------------------------------------------------------------------------------------------
 0.
 Print
@@ -950,5 +951,8 @@ Check if a number is in range
 
 41.
 Get arguments from command line
-    
     len(sys.argv) : Includes file name as first argument
+
+42. Prefix a number with leading zeroes
+    str(num).zfill(3)
+    
