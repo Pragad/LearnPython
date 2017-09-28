@@ -1,0 +1,140 @@
+2017-09-09 16:04:04.933 INFO  k.u.SpringPropertiesWrapper [main] - =========================================== Start Property Dump ===========================================
+2017-09-09 16:04:04.936 INFO  k.u.SpringPropertiesWrapper [main] - KDC_CONFIG_DEPLOY=dev
+2017-09-09 16:04:04.937 INFO  k.u.SpringPropertiesWrapper [main] - KDC_HOME=/home/kompuser/kdc
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kcfs.cacheSubdir=kc
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kcfs.chunking.blocksize.default=5
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kcfs.compression.default=true
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kcfs.compression.nas=false
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kcfs.compression.quantum_artico=false
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kcfs.compression.spectra_verde_dpe=false
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.changenotification.healthtimeout=60000
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.changenotification.marker=/kt/.changeNotification/.change
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.changenotification.markerupdate=20000
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.changenotification.path=/kt/.changeNotification
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.changenotification.startupwait=10000
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.demoSizeScale=1000
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.ioctlFile=.kDevFile
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.marker.fssw=.kc
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.marker.kcfs=.kcfs
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mount.internal.nfs=sudo -E mount -t nfs -o nolock,vers=3{3} {1} {2}
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mount.internal.smb=sudo -E mount -t cifs -o uid=kompuser,backupuid=root -o user={0}{3} {1} {2}
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mount.nfs=sudo -E mount -t nfs -o nolock{3} {1} {2}
+2017-09-09 16:04:04.938 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mount.options.EMC=-o|vers=2.1
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mount.options.security=-o|sec={0}
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mount.smb=sudo -E mount -t kcifs -o uid=kompuser,backupuid=root -o user={0}{3} {1} {2}
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mount.smb.krb5=sudo -E mount -t cifs -o uid=kompuser,backupuid=root,vers=3.0 -o user={0}{3} {1} {2}
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mountpath.cloudvolume=/kt
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mountpath.destination=/kn
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mountpath.logvolume=/kl
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mountpath.observer.nfs=/kon
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mountpath.observer.smb=/kos
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mountpath.routervolume=/kc
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.mountpath.volume=/ks
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.network.retryIntervals=1000
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.nmap=sudo -E nmap -sP --max-rtt-timeout 1000ms -oX {0} {1}
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.recall.path=/kt/.recall
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.sizes=df -BM {0}
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.umount=sudo -E umount {0}
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.umount.force=sudo -E umount -l {0}
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.actuation.umount.retryIntervals=1000,5000,15000
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.analysis.bestcache=true
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.analysis.reducedcubes=true
+2017-09-09 16:04:04.939 INFO  k.u.SpringPropertiesWrapper [main] - kdc.changenotification.enabled=true
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.changenotification.exclude.dirs=.komprise_move_reserved,.komprise_move_test_reserved
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.changenotification.exclude.fileTypes=.bcup
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.changenotification.exclude.files=_komprise_migrate_test,.kompriseWriteTest
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.changenotification.threadpoolsize=128
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.channel.timeoutReadMillis=30000
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.channel.timeoutSendMillis=86400000
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.channel.timeoutmillis=15000
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.channel.unreachableCancelMillis=120000
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.clean=persisted
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.cloud.adapter.agent.amazon=APN/1.0 Komprise/1.0 Komprise
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.cloud.adapter.encoding.ibm=UTF-8
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.cloud.adapter.encoding.ibm_cloud=UTF-8
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.cloud.adapter.threads=64
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.cloud.separateDataAndMetadata=true
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.cloud.separateDataAndMetadata.nas=false
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.cloud.separateDataAndMetadata.qunatum_artico=false
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.cloud.separateDataAndMetadata.spectra_verde_dpe=false
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.cloud.useServerSideEncryption=false
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.cloud.useServerSideEncryption.amazon=true
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.cloud.useServerSideEncryption.ibm_cloud=true
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.cloud.useServerSideEncryption.netapp=true
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.conf.path=/home/kompuser/kdc/conf
+2017-09-09 16:04:04.940 INFO  k.u.SpringPropertiesWrapper [main] - kdc.delayeddeletion.enabled=true
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.director.address=sabareesh.komprise.com
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.director.port=443
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.feature.testplan.allow=true
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.feature.usage.directoryshares=50
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.federation.access.timeout=300
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.federation.active.timeout=300
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.federation.exported.adopt=/home/kompuser/bin/gridip adopt {0}
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.federation.exported.get=/home/kompuser/bin/gridip exported
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.federation.exported.release=/home/kompuser/bin/gridip release {0}
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.federation.exported.validate=/home/kompuser/bin/gridip validate {0}
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.init.stateLoad.retryIntervals=1000,60000,600000,3600000
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.invite.timeoutmillis=15000
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.lifeCycleSetting.lifecycle.enabled=true
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.lifeCycleSetting.objectDelete.enabled=false
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.load.observer.core.analyzing=1.0
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.load.observer.core.migrating.nfs=12.5
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.load.observer.core.migrating.smb=1.0
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.load.proxy.migrating.nfs=0.0
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.load.proxy.migrating.smb=1.04
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.migragaterun.remote.timeout=604800
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.migration.target.dataLocation=data
+2017-09-09 16:04:04.941 INFO  k.u.SpringPropertiesWrapper [main] - kdc.migration.target.metadataLocation=.md
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.migration.testFile=_komprise_migrate_test
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.migration.verificationTestFile=.kompriseWriteTest
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.observer.oid=6f6ef673
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.product=Komprise
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.purgetrash.enabled=false
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.reality=actual
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recall.bulk.enabled=true
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.aggregate.between=604800000
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.aggregate.enabled=true
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.aggregate.maxautomated=8
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.aggregate.nextstart=60000
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.cleangate.between=86400000
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.cleangate.enabled=false
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.cleangate.maxautomated=20
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.cleangate.nextstart=60000
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.migragate.between=604800000
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.migragate.enabled=true
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.migragate.maxautomated=100
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.migragate.nextstart=60000
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.purgegate.between=2419200000
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.purgegate.enabled=true
+2017-09-09 16:04:04.942 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.purgegate.maxautomated=20
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.purgegate.nextstart=86400000
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.syncgate.between=86400000
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.syncgate.enabled=true
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.syncgate.maxautomated=20
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - kdc.recrawl.syncgate.nextstart=60000
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - kdc.snapshots.recovery.enabled=true
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - kdc.socket.timeoutmillis=15000
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - kdc.spawned=no
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - kdc.stress=production
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - kdc.sys.path=/home/kompuser/kdc/sys
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - kdc.target.minVersion.spectra=3.4.1
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - migration.auditlog.enabled=true
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - migration.source.kmp.dir=.komprise_move_reserved
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - migration.test.source.kmp.dir=.komprise_move_test_reserved
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - sdk.s3.certificate.validate=true
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - winproxy.minVersion=2.6
+2017-09-09 16:04:04.943 INFO  k.u.SpringPropertiesWrapper [main] - ===========================================  End Property Dump  ===========================================
+2017-09-09 16:04:05.065 INFO  k.c.s.NetAppCmodeChangeNotifyHandler [main] - Starting FPolicy listener for change notification
+2017-09-09 16:04:13.669 INFO  k.c.s.FPolicyHandshakeRequestHandler [ChangeNotifyProcessRequest-1-1] - Request received: <?xml version="1.0"?><Handshake><VsUUID>65f48acf-6eea-11e7-bf64-00a098c9b8ab</VsUUID><PolicyName>komprise-changenotify-komp-sabareesh3</PolicyName><SessionId>85953d04-9578-11e7-bf64-00a098c9b8ab</SessionId><ProtVersion><Vers>1.0</Vers><Vers>1.1</Vers><Vers>1.2</Vers><Vers>2.0</Vers></ProtVersion></Handshake> 
+2017-09-09 16:04:13.764 INFO  k.c.s.NetAppCmodeChangeNotifyHandler [ChangeNotifyProcessRequest-1-1] - Response sent: "  ~"<?xml version="1.0"?><Header><NotfType>NEGO_RESP</NotfType><ContentLen>256</ContentLen><DataFormat>XML</DataFormat></Header>
+
+<?xml version="1.0"?><HandshakeResp><VsUUID>65f48acf-6eea-11e7-bf64-00a098c9b8ab</VsUUID><PolicyName>komprise-changenotify-komp-sabareesh3</PolicyName><SessionId>85953d04-9578-11e7-bf64-00a098c9b8ab</SessionId><ProtVersion>2.0</ProtVersion></HandshakeResp>
+2017-09-09 16:04:27.977 INFO  k.c.s.FPolicyHandshakeRequestHandler [ChangeNotifyProcessRequest-1-3] - Request received: <?xml version="1.0"?><Handshake><VsUUID>e04a008e-67b6-11e7-bf64-00a098c9b8ab</VsUUID><PolicyName>komprise-changenotify-komp-sabareesh2</PolicyName><SessionId>8ea02837-9578-11e7-bf64-00a098c9b8ab</SessionId><ProtVersion><Vers>1.0</Vers><Vers>1.1</Vers><Vers>1.2</Vers><Vers>2.0</Vers></ProtVersion></Handshake> 
+2017-09-09 16:04:28.007 INFO  k.c.s.NetAppCmodeChangeNotifyHandler [ChangeNotifyProcessRequest-1-3] - Response sent: "  ~"<?xml version="1.0"?><Header><NotfType>NEGO_RESP</NotfType><ContentLen>256</ContentLen><DataFormat>XML</DataFormat></Header>
+
+<?xml version="1.0"?><HandshakeResp><VsUUID>e04a008e-67b6-11e7-bf64-00a098c9b8ab</VsUUID><PolicyName>komprise-changenotify-komp-sabareesh2</PolicyName><SessionId>8ea02837-9578-11e7-bf64-00a098c9b8ab</SessionId><ProtVersion>2.0</ProtVersion></HandshakeResp>
+2017-09-09 16:37:15.258 INFO  k.c.s.FPolicyScreenRequestHandler [ChangeNotifyProcessRequest-1-47] - Skipping nfs setattr request with change attr: 48
+2017-09-09 16:37:18.042 INFO  k.c.s.FPolicyScreenRequestHandler [ChangeNotifyProcessRequest-1-54] - Skipping nfs setattr request with change attr: 48
+2017-09-09 16:38:41.535 INFO  k.c.s.FPolicyScreenRequestHandler [ChangeNotifyProcessRequest-1-24] - Skipping nfs setattr request with change attr: 48
+2017-09-09 16:38:42.469 INFO  k.c.s.FPolicyScreenRequestHandler [ChangeNotifyProcessRequest-1-122] - Skipping nfs setattr request with change attr: 48
+2017-09-09 16:38:43.666 INFO  k.c.s.FPolicyScreenRequestHandler [ChangeNotifyProcessRequest-1-90] - Skipping nfs setattr request with change attr: 48
