@@ -10,8 +10,12 @@
 8. Get input from Console
 9. Single quotes vs. double quotes in Python
 10. What is the difference between tuples and lists in Python?
+10a. TUPLES
 11. Python Dictionary
+    Iterating over dictionaries using 'for' loops
+11a. Dictionary with mutiple keys having different values
 11b. Ordered Dictionary
+11c. I'm getting Key error in python
 12. How will you convert a string to an int in python?
     How will you convert a string to a long in python?
     How will you convert a string to a float in python?
@@ -22,6 +26,9 @@
     How will you convert a string to a list in python?
     How will you convert a string to a set in python?
     How will you create a dictionary using tuples in python?
+    How to split a string by a character
+    How do you check if a string contains only numbers
+    Most elegant way to check if the string is empty in Python?
 13. Date Time
 14. Boolean
 15. Function
@@ -44,7 +51,7 @@
 28. Directory Operations
 29. Shebang line First line in python
 30. How would you make a comma-separated string from a list
-31. Return values from a function
+31. Return multiple values from a function
 32. __doc__ attribute
 33. What is Duck Typing
 34. Python CLASSes
@@ -59,6 +66,30 @@
 41. Get arguments from command line
 42. Prefix a number with leading zeroes
 43. Python integer incrementing with ++ 
+44. Get random number
+45. Get eof and offset in a file
+46. Default arguments to a function
+47. Get path from open file in Python
+48. How to copy directory recursively in python and overwrite all?
+49. How do I copy a file in python?
+50. Maximum and Minimum values for ints
+51. Get all files in a directory recursively
+52. Touch using Python
+53. Platform independent file locking
+54. Python `if x is not None` or `if not x is None`?
+55. What does the ¿yield¿ keyword do?
+56. Ignore hidden files using os.listdir()
+57. Generating Discrete random variables with specified weights using SciPy or NumPy
+58. How to remove item from a python list if a condition is True? [duplicate]
+59. How do I list all files of a directory?
+60. list index out of range error using random.choice
+61. Convert generator object to list for debugging [duplicate]
+62. Python AttributeError: Object has no attribute
+63. How to randomly select an item from a list?
+64. double equals vs is in python [duplicate]
+65. Is it possible only to declare a variable without assigning any value in Python?
+66. In Python how should I test if a variable is None, True or False
+67. Install pip for multiple versions of Python
 ----------------------------------------------------------------------------------------------
 0.
 Print
@@ -233,6 +264,31 @@ String leading whitespace from a string
 
     newLine = lines[0].lstrip().rstrip('\n')
 
+6g. How to strip a specific word from a string?
+https://stackoverflow.com/questions/23669024/how-to-strip-a-specific-word-from-a-string
+    >>> papa = "papa is a good man"
+    >>> app = "app is important"
+
+    >>> papa.replace('papa', '')
+    ' is a good man'
+    >>> app.replace('papa', '')
+    'app is important'
+
+Alternatively use re and use regular expressions. This will allow the removal of leading/trailing spaces.
+
+    >>> import re
+    >>> papa = 'papa is a good man'
+    >>> app = 'app is important'
+    >>> papa3 = 'papa is a papa, and papa'
+    >>>
+    >>> patt = re.compile('(\s*)papa(\s*)')
+    >>> patt.sub('\\1mama\\2', papa)
+    'mama is a good man'
+    >>> patt.sub('\\1mama\\2', papa3)
+    'mama is a mama, and mama'
+    >>> patt.sub('', papa3)
+    'is a, and'
+
 7. 
 Printing String
     string_1 = "Camelot"
@@ -271,11 +327,37 @@ http://henry.precheur.org/python/python_quote.html
 10.
 What is the difference between tuples and lists in Python?
 http://www.tutorialspoint.com/python/python_interview_questions.htm
+https://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each
+
+    Tuples are fixed size in nature whereas lists are dynamic.
+    In other words, a tuple is immutable whereas a list is mutable.
+
+    You can't add elements to a tuple. Tuples have no append or extend method.
+    You can't remove elements from a tuple. Tuples have no remove or pop method.
+    You can find elements in a tuple, since this doesn¿t change the tuple.
+    You can also use the in operator to check if an element exists in the tuple.
+    Tuples are faster than lists. If you're defining a constant set of values and all you're ever going to do with it is iterate through it, use a tuple instead of a list.
+
+    It makes your code safer if you ¿write-protect¿ data that does not need to be changed. Using a tuple instead of a list is like having an implied assert statement that this data is constant, and that special thought (and a specific function) is required to override that.
+
+    Some tuples can be used as dictionary keys (specifically, tuples that contain immutable values like strings, numbers, and other tuples). Lists can never be used as dictionary keys, because lists are not immutable.
 
     The main differences between lists and tuples are -
         Lists are enclosed in brackets ( [ ] ) and their elements and size can be changed, while
         tuples are enclosed in parentheses ( ( ) ) and cannot be updated.
     Tuples can be thought of as read-only lists.
+
+10a.
+TUPLES
+
+    tup1 = ('physics', 'chemistry', 1997, 2000);
+    tup2 = (1, 2, 3, 4, 5 );
+    tup3 = "a", "b", "c", "d";
+
+    The empty tuple is written as two parentheses containing nothing ¿
+    tup1 = ();
+
+    Tuples are immutable which means you cannot update or change the values of tuple elements. You are able to take portions of existing tuples to create new tuples
 
 11.
 Python Dictionary
@@ -294,125 +376,16 @@ http://www.tutorialspoint.com/python/python_interview_questions.htm
         dict.keys()
         dict.values()
 
-11b.
-Ordered Dictionary
-http://stackoverflow.com/questions/1867861/python-dictionary-keep-keys-values-in-same-order-as-declared
+Iterating over dictionaries using 'for' loops
+    key is just a variable name.
 
-    >>> from collections import OrderedDict
-    >>> my_dictionary=OrderedDict()
-    >>> my_dictionary['foo']=3
-    >>> my_dictionary['aol']=1
-    >>> my_dictionary
-    OrderedDict([('foo', 3), ('aol', 1)])
+        for key in d:
+    will simply loop over the keys in the dictionary, rather than the keys and values. To loop over both key and value you can use the following:
 
-12.
-How will you convert a string to an int in python?
-    int(x [,base]) - Converts x to an integer. base specifies the base if x is a string.
-
-How will you convert a string to a long in python?
-    long(x [,base] ) - Converts x to a long integer. base specifies the base if x is a string.
-
-How will you convert a string to a float in python?
-    float(x) - Converts x to a floating-point number.
-
-How will you convert a object to a string in python?
-    str(x) - Converts object x to a string representation.
-
-How will you convert a object to a regular expression in python?
-    repr(x) - Converts object x to an expression string.
-
-How will you convert a String to an object in python?
-    eval(str) - Evaluates a string and returns an object.
-
-How will you convert a string to a tuple in python?
-    tuple(s) - Converts s to a tuple.
-
-How will you convert a string to a list in python?
-    list(s) - Converts s to a list.
-
-How will you convert a string to a set in python?
-    set(s) - Converts s to a set.
-
-How will you create a dictionary using tuples in python?
-    dict(d) - Creates a dictionary. d must be a sequence of (key,value) tuples.
-
-13.
-Date Time
-    from datetime import datetime
-    now = datetime.now()
-
-    current_year = now.year
-    current_month = now.month
-    current_day = now.day
-
-14.
-Boolean
-    True, False have CAP 'T' and CAP 'F'
-
-15.
-Function
-    Python function gets executed only when called
-
-16.
-Import Module from Function
-    Can import just a module from a function
-
-        import math
-        math.sqrt(25)
-
-        from math import *
-        sqrt(25)
-
-17.
-The __doc__ attribute
-https://www.iram.fr/IRAMFR/GILDAS/doc/html/gildas-python-html/node9.html
-
-    Each Python object (functions, classes, variables,...) provides (if programmer has filled it) a short documentation which describes its features.
-    You can access it with commands like print myobject.__doc__
-
-18.
-Variable number of args to a function
-http://stackoverflow.com/questions/919680/can-a-variable-number-of-arguments-be-passed-to-a-function
-
-    def manyArgs(*arg):
-      print "I was called with", len(arg), "arguments:", arg
-
-    >>> manyArgs(1)
-    I was called with 1 arguments: (1,)
-    >>> manyArgs(1, 2,3)
-    I was called with 3 arguments: (1, 2, 3)
-
-        def biggest_number(*args):
-        print max(args)
-        return max(args)
-
-        biggest_number(-10, -5, 5, 10)
-
-19.
-Lists
-    Add Elements
-        - use append()
-
-    SLICING:
-        LAST INDEX DOES NOT GET INCLUDED
-        Then, we take a subsection and store it in the slice list.
-        We start at the index before the colon and continue up to BUT NOT INCLUDING THE INDEX AFTER THE COLON.
-
-    SEARCH:
-        .index()
-
-    INSERT:
-        .insert()
-
-    SORT:
-        .sort()
-        inventory['backpack'].sort()
-
-    REMOVE
-        backpack = ['xylophone', 'dagger', 'tent', 'bread loaf']
-        backpack.remove('dagger')
-
-        inventory['backpack'].remove('dagger')
+    For Python 2.x:
+        for key, value in d.iteritems():
+    For Python 3.x:
+        for key, value in d.items():
 
 20.
 DICTIONARY:
@@ -472,6 +445,165 @@ http://stackoverflow.com/questions/613183/sort-a-python-dictionary-by-value?rq=1
         import operator
         x = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0}
         sorted_x = sorted(x.items(), key=operator.itemgetter(0))
+
+11a.
+Dictionary with mutiple keys having different values
+https://stackoverflow.com/questions/10664856/make-dictionary-with-duplicate-keys-in-python
+
+    Python dictionaries don't support duplicate keys. One way around is to store lists or sets inside the dictionary.
+
+    One easy way to achieve this is by using defaultdict:
+        from collections import defaultdict
+        data_dict = defaultdict(list)
+    All you have to do is replace
+        data_dict[regNumber] = details
+    with
+        data_dict[regNumber].append(details)
+    and you'll get a dictionary of lists.
+
+11b.
+Ordered Dictionary
+http://stackoverflow.com/questions/1867861/python-dictionary-keep-keys-values-in-same-order-as-declared
+
+    >>> from collections import OrderedDict
+    >>> my_dictionary=OrderedDict()
+    >>> my_dictionary['foo']=3
+    >>> my_dictionary['aol']=1
+    >>> my_dictionary
+    OrderedDict([('foo', 3), ('aol', 1)])
+
+11c. I'm getting Key error in python
+    A KeyError generally means the key doesn't exist.
+
+12.
+How will you convert a string to an int in python?
+    int(x [,base]) - Converts x to an integer. base specifies the base if x is a string.
+
+How will you convert a string to a long in python?
+    long(x [,base] ) - Converts x to a long integer. base specifies the base if x is a string.
+
+How will you convert a string to a float in python?
+    float(x) - Converts x to a floating-point number.
+
+How will you convert a object to a string in python?
+    str(x) - Converts object x to a string representation.
+
+How will you convert a object to a regular expression in python?
+    repr(x) - Converts object x to an expression string.
+
+How will you convert a String to an object in python?
+    eval(str) - Evaluates a string and returns an object.
+
+How will you convert a string to a tuple in python?
+    tuple(s) - Converts s to a tuple.
+
+How will you convert a string to a list in python?
+    list(s) - Converts s to a list.
+
+How will you convert a string to a set in python?
+    set(s) - Converts s to a set.
+
+How will you create a dictionary using tuples in python?
+    dict(d) - Creates a dictionary. d must be a sequence of (key,value) tuples.
+
+How to split a string by a character
+    x.split(¿,¿)
+
+How do you check if a string contains only numbers
+    Use str.isdigit:
+
+    >>> "12345".isdigit()
+    True
+    >>> "12345a".isdigit()
+    False
+    >>>
+
+Most elegant way to check if the string is empty in Python?
+    if not myString:
+
+13.
+Date Time
+    from datetime import datetime
+    now = datetime.now()
+
+    current_year = now.year
+    current_month = now.month
+    current_day = now.day
+
+    import time
+    print time.strftime("%Y-%m-%d %H:%M")
+
+14.
+Boolean
+    True, False have CAP 'T' and CAP 'F'
+
+15.
+Function
+    Python function gets executed only when called
+
+16.
+Import Module from Function
+    Can import just a module from a function
+
+        import math
+        math.sqrt(25)
+
+        from math import *
+        sqrt(25)
+
+17.
+The __doc__ attribute
+https://www.iram.fr/IRAMFR/GILDAS/doc/html/gildas-python-html/node9.html
+
+    Each Python object (functions, classes, variables,...) provides (if programmer has filled it) a short documentation which describes its features.
+    You can access it with commands like print myobject.__doc__
+
+18.
+Variable number of args to a function
+http://stackoverflow.com/questions/919680/can-a-variable-number-of-arguments-be-passed-to-a-function
+
+    def manyArgs(*arg):
+      print "I was called with", len(arg), "arguments:", arg
+
+    >>> manyArgs(1)
+    I was called with 1 arguments: (1,)
+    >>> manyArgs(1, 2,3)
+    I was called with 3 arguments: (1, 2, 3)
+
+        def biggest_number(*args):
+        print max(args)
+        return max(args)
+
+        biggest_number(-10, -5, 5, 10)
+
+19.
+Lists
+    Create
+        odds = [1, 3, 5, 7]
+
+    Add Elements
+        - use append()
+
+    SLICING:
+        LAST INDEX DOES NOT GET INCLUDED
+        Then, we take a subsection and store it in the slice list.
+        We start at the index before the colon and continue up to BUT NOT INCLUDING THE INDEX AFTER THE COLON.
+
+    SEARCH:
+        .index()
+
+    INSERT:
+        .insert()
+
+    SORT:
+        .sort()
+        inventory['backpack'].sort()
+
+    REMOVE
+        backpack = ['xylophone', 'dagger', 'tent', 'bread loaf']
+        backpack.remove('dagger')
+
+        inventory['backpack'].remove('dagger')
 
 21. 
 PYTHON FOR STATEMENT
@@ -696,7 +828,23 @@ http://stackoverflow.com/questions/44778/how-would-you-make-a-comma-separated-st
         myList = ','.join(map(str, myList)) 
 
 31.
-Return values from a function
+Return multiple values from a function
+https://www.mantidproject.org/Working_With_Functions:_Return_Values
+
+    1. Get in the form of tuple
+        def square(x,y):
+            return x*x, y*y
+
+        t = square(2,3)
+        print(t)  # Produces (4,9)    
+
+    2. 
+        def square(x,y):
+            return x*x, y*y
+
+        xsq, ysq = square(2,3)
+        print(xsq)  # Prints 4
+        print(ysq)  # Prints 9  
 
     Just return what you want from the function
         def random_col(board):
@@ -960,3 +1108,237 @@ Get arguments from command line
 43. Python integer incrementing with ++ 
     Python doesn't support ++, but you can do:
     number += 1
+
+44. Get random number
+
+    from random import randint
+    print(randint(0, 9))
+
+45. Get eof and offset in a file
+    f.seek(0, 2)
+    eof = f.tell()
+
+46. Default arguments to a function
+    def myfunct(a, b, e, f, c=None, d=None):
+
+47. Get path from open file in Python
+    >>> f = open('/Users/Desktop/febROSTER2012.xls')
+    >>> f.name
+    '/Users/Desktop/febROSTER2012.xls'
+
+48. How to copy directory recursively in python and overwrite all?
+    shutil.copytree(from_path, to_path)
+
+49. How do I copy a file in python?
+    https://stackoverflow.com/questions/123198/how-do-i-copy-a-file-in-python
+
+    from shutil import copyfile
+    copyfile(src, dst)
+
+50. Maximum and Minimum values for ints
+https://stackoverflow.com/questions/7604966/maximum-and-minimum-values-for-ints
+    sys.maxint
+    sys.maxint constant has been removed from Python 3.0 onward, instead use sys.maxsize
+    import sys
+    max = sys.maxsize
+    min = -sys.maxsize
+
+51. Get all files in a directory recursively
+https://stackoverflow.com/questions/6411811/randomly-selecting-a-file-from-a-tree-of-directories-in-a-completely-fair-manner
+
+    files = [os.path.join(path, filename)
+             for path, dirs, files in os.walk(dir)
+             for filename in files
+             if not filename.endswith(".bak")]
+    return random.choice(files)    
+
+52. Touch using Python
+https://stackoverflow.com/questions/1158076/implement-touch-using-python    
+    import os
+    def touch(fname, times=None):
+        with open(fname, 'a'):
+            os.utime(fname, times)
+
+    Looks like this is new as of Python 3.4 - pathlib.
+        from pathlib import Path
+        Path('path/to/file.txt').touch()
+
+53. Platform independent file locking
+https://pythonhosted.org/lockfile/lockfile.html
+https://stackoverflow.com/questions/489861/locking-a-file-in-python
+
+    I need to lock a file for writing in Python. It will be accessed from multiple Python processes at once.
+
+    from filelock import FileLock
+    with FileLock("myfile.txt"):
+        # work with the file as it     
+
+54. Python `if x is not None` or `if not x is None`?
+    There's no performance difference, as they compile to the same bytecode
+    Code should be written to be understandable to the programmer first, and the compiler or interpreter second. The "is not" construct resembles English more closely than "not is".
+
+55. What does the ¿yield¿ keyword do?
+https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do
+    READ THIS LINK
+
+    To understand what yield does, you must understand what generators are. And before generators come iterables.
+
+    Iterables
+    When you create a list, you can read its items one by one. Reading its items one by one is called iteration:
+
+    >>> mylist = [1, 2, 3]
+    >>> for i in mylist:
+    ...    print(i)
+    1
+    2
+    3
+    mylist is an iterable. When you use a list comprehension, you create a list, and so an iterable:
+
+    >>> mylist = [x*x for x in range(3)]
+    >>> for i in mylist:
+    ...    print(i)
+    0
+    1
+    4
+    Everything you can use "for... in..." on is an iterable; lists, strings, files...
+
+    These iterables are handy because you can read them as much as you wish, but you store all the values in memory and this is not always what you want when you have a lot of values.
+
+    Generators
+    Generators are iterators, a kind of iterable you can only iterate over once. Generators do not store all the values in memory, they generate the values on the fly:
+
+    >>> mygenerator = (x*x for x in range(3))
+    >>> for i in mygenerator:
+    ...    print(i)
+    0
+    1
+    4
+    It is just the same except you used () instead of []. BUT, you cannot perform for i in mygenerator a second time since generators can only be used once: they calculate 0, then forget about it and calculate 1, and end calculating 4, one by one.
+
+    Yield
+    yield is a keyword that is used like return, except the function will return a generator.
+
+    >>> def createGenerator():
+    ...    mylist = range(3)
+    ...    for i in mylist:
+    ...        yield i*i
+    ...
+    >>> mygenerator = createGenerator() # create a generator
+    >>> print(mygenerator) # mygenerator is an object!
+    <generator object createGenerator at 0xb7555c34>
+    >>> for i in mygenerator:
+    ...     print(i)
+    0
+    1
+    4
+    Here it's a useless example, but it's handy when you know your function will return a huge set of values that you will only need to read once.
+
+    To master yield, you must understand that when you call the function, the code you have written in the function body does not run. The function only returns the generator object, this is a bit tricky :-)
+
+    Then, your code will be run each time the for uses the generator.
+
+    Now the hard part:
+
+    The first time the for calls the generator object created from your function, it will run the code in your function from the beginning until it hits yield, then it'll return the first value of the loop. Then, each other call will run the loop you have written in the function one more time, and return the next value, until there is no value to return.
+
+    The generator is considered empty once the function runs but does not hit yield anymore. It can be because the loop had come to an end, or because you do not satisfy an "if/else" anymore.
+
+56. Ignore hidden files using os.listdir()
+    You can write one yourself:
+
+
+    def listdir_nohidden(path):
+        for f in os.listdir(path):
+            if not f.startswith('.'):
+                yield f
+    Or you can use a glob:
+
+    def listdir_nohidden(path):
+        return glob.glob(os.path.join(path, '*'))
+    Either of these will ignore all filenames beginning with '.'
+
+57. Generating Discrete random variables with specified weights using SciPy or NumPy
+https://stackoverflow.com/questions/11373192/generating-discrete-random-variables-with-specified-weights-using-scipy-or-numpy
+https://stackoverflow.com/questions/4265988/generate-random-numbers-with-a-given-numerical-distribution
+
+    Drawing from a discrete distribution is directly built into numpy. The function is called random.choice (difficult to find without any reference to discrete distributions in the numpy docs).
+
+    elements = [1.1, 2.2, 3.3]
+    probabilities = [0.2, 0.5, 0.3]
+    np.random.choice(elements, 10, p=probabilities)
+
+    scipy.stats.rv_discrete might be what you want. You can supply your probabilities via the values parameter. You can then use the rvs() method of the distribution object to generate random numbers.
+
+    As pointed out by Eugene Pakhomov in the comments, you can also pass a p keyword parameter to numpy.random.choice(), e.g.
+
+    numpy.random.choice(numpy.arange(1, 7), p=[0.1, 0.05, 0.05, 0.2, 0.4, 0.2])
+
+58. How to remove item from a python list if a condition is True? [duplicate]
+
+    y = [s for s in x if len(s) == 2]
+    somelist = [x for x in somelist if not determine(x)]
+
+    The answers suggesting list comprehensions are ALMOST correct -- except that they build a completely new list and then give it the same name the old list as, they do NOT modify the old list in place. That's different from what you'd be doing by selective removal, as in @Lennart's suggestion -- it's faster, but if your list is accessed via multiple references the fact that you're just reseating one of the references and NOT altering the list object itself can lead to subtle, disastrous bugs.
+
+    somelist[:] = [x for x in somelist if not determine(x)]
+
+    Note the subtle difference with other answers: this one is NOT assigning to a barename - it's assigning to a list slice that just happens to be the entire list, thereby replacing the list contents within the same Python list object, rather than just reseating one reference
+
+59. How do I list all files of a directory?
+
+    os.listdir() will get you everything that's in a directory - files and directories.
+
+    If you want just files, you could either filter this down using os.path:
+        from os import listdir
+        from os.path import isfile, join
+        onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+
+60. list index out of range error using random.choice
+
+    Refer to https://docs.python.org/2/library/random.html
+    random.choice(seq) raises IndexError if the seq is empty.
+
+61. Convert generator object to list for debugging [duplicate]
+
+    Simply call list on the generator.
+    lst = list(gen)
+
+62. Python AttributeError: Object has no attribute
+    
+    Your indentation is goofed, and you've mixed tabs and spaces. Run the script with python -tt to verify
+
+63. How to randomly select an item from a list?
+
+    Use random.choice:
+        import random
+        foo = ['a', 'b', 'c', 'd', 'e']
+        print(random.choice(foo))
+
+64. double equals vs is in python [duplicate]
+    is checks that 2 arguments refer to the same object, == checks that 2 arguments have the same value. 
+
+65. Is it possible only to declare a variable without assigning any value in Python?
+    var = None
+
+66. In Python how should I test if a variable is None, True or False
+
+    if result is None:
+        print "error parsing stream"
+    elif result:
+        print "result pass"
+    else:
+        print "result fail"
+
+67. Install pip for multiple versions of Python
+https://stackoverflow.com/questions/11268501/how-to-use-pip-with-python-3-x-alongside-python-2-x
+https://stackoverflow.com/questions/2812520/pip-dealing-with-multiple-python-versions
+    Python 3.6 already has pip. Incase if you need
+    curl -O https://bootstrap.pypa.io/get-pip.py
+    sudo python3.6 get-pip.py
+
+    pip -V
+    pip3.6 -V
+    sudo pip3.6 install pandas
+
+    Uninstall pip package using:
+    pip uninstall <package>
