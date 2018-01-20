@@ -8,23 +8,23 @@ from subprocess import call
 myPwd = os.getcwd()
 print("\n\n" + myPwd)
 
-os.chdir("/Users/pragad/ItsMine/Dev_Git/Algos")
+os.chdir("/Users/pragad/Pragad/Code/Algos")
 print("\n\n" + os.getcwd())
 call(["git status"], shell=True)
 
-os.chdir("/Users/pragad/ItsMine/Dev_Git/LearnCpp")
+os.chdir("/Users/pragad/Pragad/Code/LearnCpp")
 print("\n\n" + os.getcwd())
 call(["git status"], shell=True)
 
-os.chdir("/Users/pragad/ItsMine/Dev_Git/LearnPython")
+os.chdir("/Users/pragad/Pragad/Code/LearnPython")
 print("\n\n" + os.getcwd())
 call(["git status"], shell=True)
 
-os.chdir("/Users/pragad/ItsMine/Dev_Git/LearnJava")
+os.chdir("/Users/pragad/Pragad/Code/LearnJava")
 print("\n\n" + os.getcwd())
 call(["git status"], shell=True)
 
-os.chdir("/Users/pragad/ItsMine/Dev_Git/OtherLearnings")
+os.chdir("/Users/pragad/Pragad/Code/OtherLearnings")
 print("\n\n" + os.getcwd())
 call(["git status"], shell=True)
 
