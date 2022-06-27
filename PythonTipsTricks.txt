@@ -55,6 +55,8 @@
 32. __doc__ attribute
 33. What is Duck Typing
 34. Python CLASSes
+34a. Python type class and metaclass
+34a1. How to create 'type' class
 34b. Python Class Static Variable and Class Variable
 34c. Static Methods
 35. Python Inheritence and Polymorphism
@@ -65,7 +67,7 @@
 40. Check if a number is in range
 41. Get arguments from command line
 42. Prefix a number with leading zeroes
-43. Python integer incrementing with ++ 
+43. Python integer incrementing with ++
 44. Get random number
 45. Get eof and offset in a file
 46. Default arguments to a function
@@ -90,6 +92,7 @@
 65. Is it possible only to declare a variable without assigning any value in Python?
 66. In Python how should I test if a variable is None, True or False
 67. Install pip for multiple versions of Python
+68. Singleton in Python
 ----------------------------------------------------------------------------------------------
 0.
 Print
@@ -98,6 +101,10 @@ http://stackoverflow.com/questions/12032214/python-3-print-new-output-on-same-li
     print "There are %d items in the suitcase." % (list_length)
 
 PYTHON 3.x
+    DON'T USE + for concatenation
+        print('My name is', os.getlogin(), 'and I am', 42) --> Works
+        print('My age is: ' + 42) --> Fails with TypeError: can only concatenate str (not "int") to str
+
     From help(print):
 
     Help on built-in function print in module builtins:
@@ -115,8 +122,8 @@ PYTHON 3.x
 
     >>> for i in range(1, 11):
     ...     print(i, end='')
-    ... 
-    12345678910>>> 
+    ...
+    12345678910>>>
 
 PYTHON 2.x
     # Extra comma at end makes sure that it gets printed on the same line
@@ -182,7 +189,7 @@ http://stackoverflow.com/questions/4041238/why-use-def-main
 
     Thus, when module one gets loaded, its __name__ equals "one" instead of __main__
 
-2. 
+2.
 Multiline Comments
     """ hello
     world """
@@ -195,10 +202,10 @@ Exponentiation
     **
     pow(10, 2) = 10 ** 2
 
-4. 
+4.
 Python String Formatting
 https://docs.python.org/2/library/stdtypes.html#string-formatting
-    
+
     "%0.2f" % (num,)
 
     - Precision (optional), given as a '.' (dot) followed by the precision.
@@ -206,7 +213,7 @@ https://docs.python.org/2/library/stdtypes.html#string-formatting
     - Length modifier (optional).
     - Conversion type.
 
-5. 
+5.
 Accessing Elelemt in a String Array and SLICING of String:
     fifth_letter = "MONTY"[4]
 
@@ -222,7 +229,7 @@ Accessing Elelemt in a String Array and SLICING of String:
     >>> x[2:-2]
     'llo Worl'
 
-6. 
+6.
 String Builtin Helper Functions
     Methods that use dot notation only work with strings.
 
@@ -244,7 +251,7 @@ Check if string has only alphabets
 Check if a string is present in another string
 http://stackoverflow.com/questions/3437059/does-python-have-a-string-contains-substring-method?rq=1
 
-    if "blah" not in somestring: 
+    if "blah" not in somestring:
         continue
 
 6d.
@@ -289,7 +296,7 @@ Alternatively use re and use regular expressions. This will allow the removal of
     >>> patt.sub('', papa3)
     'is a, and'
 
-7. 
+7.
 Printing String
     string_1 = "Camelot"
     string_2 = "place"
@@ -311,7 +318,7 @@ http://stackoverflow.com/questions/954834/how-do-i-use-raw-input-in-python-3
 Single quotes vs. double quotes in Python
 http://stackoverflow.com/questions/56011/single-quotes-vs-double-quotes-in-python
 http://henry.precheur.org/python/python_quote.html
-    
+
     Quoting the official docs at https://docs.python.org/2.0/ref/strings.html:
         In plain English: String literals can be enclosed in matching single quotes (') or double quotes (").
     So there is no difference
@@ -400,7 +407,7 @@ DICTIONARY:
         str(len(menu))
 
         del menu[key_name]
-        
+
     IT CAN STORE DIFFERENT DATA TYPES
         my_dict = {
             "fish": ["c", "a", "r", "p"],
@@ -412,8 +419,8 @@ DICTIONARY:
     PRINT
         d = {"foo" : "bar"}
 
-        for key in d: 
-            print d[key]    # IMP  
+        for key in d:
+            print d[key]    # IMP
 
         prices = {"banana" : 4, "apple" : 2, "orange" : 1.5, "pear" : 3}
         stock = {"banana" : 6, "apple" : 0, "orange" : 32, "pear" : 15}
@@ -605,7 +612,7 @@ Lists
 
         inventory['backpack'].remove('dagger')
 
-21. 
+21.
 PYTHON FOR STATEMENT
     - IMP: for statement MUST NOT have '(' ')'
 
@@ -799,7 +806,7 @@ Directory Operations
 29.
 Shebang line First line in python
 
-    #! /usr/bin/env 
+    #! /usr/bin/env
     #! /usr/bin/env python
 
     In order to run the python script, we need to tell the shell three things:
@@ -825,7 +832,7 @@ http://stackoverflow.com/questions/44778/how-would-you-make-a-comma-separated-st
     This won't work if the list contains numbers.
 
     If it contains non-string types (such as integers, floats, bools, None) then do:
-        myList = ','.join(map(str, myList)) 
+        myList = ','.join(map(str, myList))
 
 31.
 Return multiple values from a function
@@ -836,15 +843,15 @@ https://www.mantidproject.org/Working_With_Functions:_Return_Values
             return x*x, y*y
 
         t = square(2,3)
-        print(t)  # Produces (4,9)    
+        print(t)  # Produces (4,9)
 
-    2. 
+    2.
         def square(x,y):
             return x*x, y*y
 
         xsq, ysq = square(2,3)
         print(xsq)  # Prints 4
-        print(ysq)  # Prints 9  
+        print(ysq)  # Prints 9
 
     Just return what you want from the function
         def random_col(board):
@@ -854,7 +861,7 @@ https://www.mantidproject.org/Working_With_Functions:_Return_Values
 
 32. __doc__ attribute
 
-    There is a __doc__ attribute for every object. 
+    There is a __doc__ attribute for every object.
     It prints details about the data type
 
     print(myStr.__doc__)
@@ -868,7 +875,7 @@ https://www.mantidproject.org/Working_With_Functions:_Return_Values
         Otherwise, returns the result of object.__str__() (if defined)
         or repr(object).
         encoding defaults to sys.getdefaultencoding().
-        errors defaults to 'strict'.    
+        errors defaults to 'strict'.
 
 33.
 What is Duck Typing
@@ -877,6 +884,61 @@ http://stackoverflow.com/questions/4205130/what-is-duck-typing
 34.
 Python CLASSes
 https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/
+
+34a. Python type class and metaclass
+https://www.pythontutorial.net/python-oop/python-type-class/
+https://stackoverflow.com/questions/392160/what-are-some-concrete-use-cases-for-metaclasses
+
+    A metaclass is a class that creates other classes. By default, Python uses the type metaclass to create other classes.
+
+    type is a metaclass, of which classes are instances. Just as an ordinary object is an instance of a class, any new-style class in Python, and thus any class in Python 3, is an instance of the type metaclass.
+
+    In the below case:
+    - x is an instance of class Foo.
+    - Foo is an instance of the type metaclass.
+    - type is also an instance of the type metaclass, so it is an instance of itself.
+
+    Remember that, in Python, everything is an object. Classes are objects as well. As a result, a class must have a type
+        >>> class Foo:
+        ...     pass
+        ...
+        >>> x = Foo()
+
+        >>> type(x)
+        <class '__main__.Foo'>
+
+        >>> type(Foo)
+        <class 'type'>
+    The type of x is class Foo, as you would expect. But the type of Foo, the class itself, is type. In general, the type of any new-style class is type.
+
+34a1. How to create 'type' class
+https://realpython.com/python-metaclasses/
+    You can also call type() with three arguments¿type(<name>, <bases>, <dct>):
+        - <name> specifies the class name. This becomes the __name__ attribute of the class.
+        - <bases> specifies a tuple of the base classes from which the class inherits. This becomes the __bases__ attribute of the class.
+        - <dct> specifies a namespace dictionary containing definitions for the class body. This becomes the __dict__ attribute of the class.
+    Calling type() in this manner creates a new instance of the type metaclass. In other words, it dynamically creates a new class.
+
+https://stackoverflow.com/questions/22609272/python-typename-bases-dict
+NICE EXPLANATION
+    When you define a class:
+        class Foo(Base1, Base2):
+            bar = 'baz'
+
+            def spam(self):
+                 return 'ham'
+
+    Python essentially does this:
+        def spam(self):
+            return 'ham'
+        body = {'bar': 'baz', 'spam': spam}
+
+        Foo = type('Foo', (Base1, Base2), body)
+    where Foo is then added to the namespace the class statement was defined in.
+
+    The block under the class statement is executed as if it was a function with no arguments and the resulting local namespace (a dictionary) forms the class body; in this case a dictionary with 'bar' and 'spam' keys is formed.
+
+    You can achieve the same result by passing a name string, a tuple of base classes and a dictionary with string keys to the type() function.
 
 34b.
 Python Class Static Variable and Class Variable
@@ -898,7 +960,7 @@ http://stackoverflow.com/questions/9056957/correct-way-to-define-class-variables
         c2 = MyClass()
 
         # Initial values of both elements
-        >>> print c1.static_elem, c1.object_elem 
+        >>> print c1.static_elem, c1.object_elem
         123 456
         >>> print c2.static_elem, c2.object_elem
         123 456
@@ -1052,7 +1114,7 @@ Sort a list
     // 	Floor Division :
     The division of operands where the result is the quotient in which the digits after the decimal point are removed.
     But if one of the operands is negative, the result is floored,
-    i.e., rounded away from zero (towards negative infinity): 
+    i.e., rounded away from zero (towards negative infinity):
     9//2 = 4 and 9.0//2.0 = 4.0, -11//3 = -4, -11.0//3 = -4.0
 
 
@@ -1104,8 +1166,8 @@ Get arguments from command line
 
 42. Prefix a number with leading zeroes
     str(num).zfill(3)
-    
-43. Python integer incrementing with ++ 
+
+43. Python integer incrementing with ++
     Python doesn't support ++, but you can do:
     number += 1
 
@@ -1150,10 +1212,10 @@ https://stackoverflow.com/questions/6411811/randomly-selecting-a-file-from-a-tre
              for path, dirs, files in os.walk(dir)
              for filename in files
              if not filename.endswith(".bak")]
-    return random.choice(files)    
+    return random.choice(files)
 
 52. Touch using Python
-https://stackoverflow.com/questions/1158076/implement-touch-using-python    
+https://stackoverflow.com/questions/1158076/implement-touch-using-python
     import os
     def touch(fname, times=None):
         with open(fname, 'a'):
@@ -1171,7 +1233,7 @@ https://stackoverflow.com/questions/489861/locking-a-file-in-python
 
     from filelock import FileLock
     with FileLock("myfile.txt"):
-        # work with the file as it     
+        # work with the file as it
 
 54. Python `if x is not None` or `if not x is None`?
     There's no performance difference, as they compile to the same bytecode
@@ -1304,7 +1366,7 @@ https://stackoverflow.com/questions/4265988/generate-random-numbers-with-a-given
     lst = list(gen)
 
 62. Python AttributeError: Object has no attribute
-    
+
     Your indentation is goofed, and you've mixed tabs and spaces. Run the script with python -tt to verify
 
 63. How to randomly select an item from a list?
@@ -1315,7 +1377,7 @@ https://stackoverflow.com/questions/4265988/generate-random-numbers-with-a-given
         print(random.choice(foo))
 
 64. double equals vs is in python [duplicate]
-    is checks that 2 arguments refer to the same object, == checks that 2 arguments have the same value. 
+    is checks that 2 arguments refer to the same object, == checks that 2 arguments have the same value.
 
 65. Is it possible only to declare a variable without assigning any value in Python?
     var = None
@@ -1342,3 +1404,6 @@ https://stackoverflow.com/questions/2812520/pip-dealing-with-multiple-python-ver
 
     Uninstall pip package using:
     pip uninstall <package>
+
+68. Singleton in Python
+https://stackoverflow.com/questions/72742031/creating-singleton-metaclass-in-python-that-can-be-extended-to-multiple-derived/72749257?noredirect=1#comment128510485_72749257

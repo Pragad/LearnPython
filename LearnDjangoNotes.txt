@@ -1,0 +1,112 @@
+0. Useful Links:
+1. What is a Django Project and Django App
+A. Django Project Setup
+2. Setup and create a Django Project
+3. What does "startproject" do?
+4. Create a development database
+5. Start Django Server
+6. What are wsgi.py and asgi.py
+7. How to specify a different port
+B. Create a Django App
+8. Once we have created a Django project, we should create a Django App
+9. urls.py
+================================================================================
+0. Useful Links:
+    - https://code.visualstudio.com/docs/python/tutorial-django
+    - https://djangoforbeginners.com/hello-world/
+
+1. What is a Django Project and Django App
+        In Django terminology, a "Django project" is composed of several site-level configuration files, along with one or more "apps" that you deploy to a web host to create a full web application. A Django project can contain multiple apps, each of which typically has an independent function in the project, and the same app can be in multiple Django projects. An app, for its part, is just a Python package that follows certain conventions that Django expects.
+
+        To create a minimal Django app, then, it's necessary to first create the Django project to serve as the container for the app, then create the app itself. For both purposes, you use the Django administrative utility, django-admin, which is installed when you install the Django package.
+
+A. Django Project Setup
+2. Setup and create a Django Project
+    1. Create a new directory and start a Python Virtual Environment. Activate the Virtual Environment, Install Django and Start a WebProject
+        a. python -m venv .venv
+        b. source .venv/bin/activate
+        c. python -m pip install django~=4.0.5
+        d. django-admin startproject django_project .
+
+3. What does "startproject" do?
+    This startproject command assumes (by use of . at the end) that the current folder is your project folder, and creates the following within it:
+        - manage.py: The Django command-line administrative utility for the project. You run administrative commands for the project using python manage.py <command> [options].
+
+        - A subfolder named web_project, which contains the following files:
+            - __init__.py: an empty file that tells Python that this folder is a Python package.
+            - asgi.py: an entry point for ASGI-compatible web servers to serve your project. You typically leave this file as-is as it provides the hooks for production web servers.
+            - settings.py: contains settings for Django project, which you modify in the course of developing a web app.
+            - urls.py: contains a table of contents for the Django project, which you also modify in the course of development.
+            - wsgi.py: an entry point for WSGI-compatible web servers to serve your project. You typically leave this file as-is as it provides the hooks for production web servers.
+
+4. Create a development database
+        python manage.py migrate
+    When you run the server the first time, it creates a default SQLite database in the file db.sqlite3 that is intended for development purposes, but can be used in production for low-volume web apps.
+
+5. Start Django Server
+    python manage.py runserver
+
+    The server runs on the default port 8000, and you see output like the following output in the terminal window
+        python manage.py runserver
+        Watching for file changes with StatReloader
+        Performing system checks...
+
+        System check identified no issues (0 silenced).
+        June 22, 2022 - 06:29:58
+        Django version 4.0.5, using settings 'django_project.settings'
+        Starting development server at http://127.0.0.1:8000/
+        Quit the server with CONTROL-C.
+
+6. What are wsgi.py and asgi.py
+    When you deploy to a web host, however, Django uses the host's web server instead. The wsgi.py and asgi.py modules in the Django project take care of hooking into the production servers.
+
+7. How to specify a different port
+    If you want to use a different port than the default 8000, specify the port number on the command line, such as
+        python manage.py runserver 5000
+
+B. Create a Django App
+8. Once we have created a Django project, we should create a Django App
+    In the VS Code Terminal with your virtual environment activated, run the administrative utility's startapp command in your project folder (where manage.py resides):
+        python manage.py startapp hello
+
+    The command creates a folder called hello that contains a number of code files and one subfolder.
+        i. views.py
+            contains the functions that define pages in your web app
+            where we handle the request/response logic for our web app
+        ii. models.py
+            models.py (that contains classes defining your data objects).
+        iii. migrations folder
+            The migrations folder is used by Django's administrative utility to manage database versions
+            where we define our database models which Django automatically translates into database tables
+        iv. apps.py
+            There are also the files apps.py (app configuration)
+            a configuration file for the app itself
+        v. admin.py
+            admin.py (for creating an administrative interface)
+            a configuration file for the built-in Django Admin app
+        vi. tests.py
+            tests.py (for creating tests)
+
+9. urls.py
+    urls.py
+         The urls.py file is where you specify patterns to route different URLs to their appropriate views. The code below contains one route to map root URL of the app ("") to the views.home function that you just added to hello/views.py:
+            from django.urls import path
+            from hello import views
+
+            urlpatterns = [
+                path("", views.home, name="home"),
+            ]
+
+    web_project/urls.py
+        The web_project folder also contains a urls.py file, which is where URL routing is actually handled.
+
+        Open web_project/urls.py and modify it to match the following code.
+        This code pulls in the app's hello/urls.py using django.urls.include, which keeps the app's routes contained within the app.
+        This separation is helpful when a project contains multiple apps.
+            from django.contrib import admin
+            from django.urls import include, path
+
+            urlpatterns = [
+                path("", include("hello.urls")),
+                path('admin/', admin.site.urls)
+            ]
