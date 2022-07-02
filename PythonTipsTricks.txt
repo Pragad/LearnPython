@@ -93,6 +93,7 @@
 66. In Python how should I test if a variable is None, True or False
 67. Install pip for multiple versions of Python
 68. Singleton in Python
+69. When to use self in Python
 ----------------------------------------------------------------------------------------------
 0.
 Print
@@ -1407,3 +1408,15 @@ https://stackoverflow.com/questions/2812520/pip-dealing-with-multiple-python-ver
 
 68. Singleton in Python
 https://stackoverflow.com/questions/72742031/creating-singleton-metaclass-in-python-that-can-be-extended-to-multiple-derived/72749257?noredirect=1#comment128510485_72749257
+
+69. When to use self in Python
+https://stackoverflow.com/questions/7721920/when-do-you-use-self-in-python
+
+You use self when:
+    1. Defining an instance method. It is passed automatically as the first parameter when you call a method on an instance, and it is the instance on which the method was called.
+    2. Referencing a class or instance attribute from inside an instance method. Use it when you want to call a method or access a name (variable) on the instance the method was called on, from inside that method.
+
+You don't use self when
+    1. You call an instance method normally. Using Oskarbi's example, if you do instance = MyClass(), you call MyClass.my_method as instance.my_method(some_var) not as instance.my_method(self, some_var).
+    2. You reference a class attribute from outside an instance method but inside the class definition.
+    3. You're inside a staticmethod.
