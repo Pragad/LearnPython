@@ -94,6 +94,7 @@
 67. Install pip for multiple versions of Python
 68. Singleton in Python
 69. When to use self in Python
+70. Setting up Pyenv
 ----------------------------------------------------------------------------------------------
 0.
 Print
@@ -1420,3 +1421,30 @@ You don't use self when
     1. You call an instance method normally. Using Oskarbi's example, if you do instance = MyClass(), you call MyClass.my_method as instance.my_method(some_var) not as instance.my_method(self, some_var).
     2. You reference a class attribute from outside an instance method but inside the class definition.
     3. You're inside a staticmethod.
+
+70. Setting up Pyenv
+https://github.com/pyenv/pyenv#homebrew-in-macos
+    brew install pyenv
+
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+    echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+    echo 'eval "$(pyenv init -)"' >>  ~/.zshrc
+
+    pyenv install --list | grep " 2\."
+    brew install openssl readline sqlite3 xz zlib
+        # Not needed for now
+        echo 'export PATH="/usr/local/opt/sqlite/bin:$PATH"' >> ~/.zshrc
+    brew info openssl
+    pyenv install --list | grep " 2\."
+    pyenv install 2.7.18
+    pyenv local 2.7.18
+
+71. Virtual environment
+https://mnzel.medium.com/how-to-activate-python-venv-on-a-mac-a8fa1c3cb511
+    python3 -m venv ./venv
+
+    Creating VENV in Python 2:
+        virtualenv -p  /Users/pragad/.pyenv/shims/python2 venv
+
+    source venv/bin/activate
+
